@@ -1,0 +1,1 @@
+dog,cat,tiger,lion,lizard,rat,horse,donkey,bear,ostrich,human,monkey,gorila,crow,crane,cow,kite,ant,hamster
