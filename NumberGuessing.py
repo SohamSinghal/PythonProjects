@@ -1,5 +1,4 @@
 import random
-count = 8
 #Chosing a number
 def choose():
     num = random.randint(1,30)
@@ -33,29 +32,32 @@ def greater_or_smaller(x,y):
 def win(x,y):
     if x==y:
         return True
-name = input("Enter your name:")
-print(name,"you have 8 chances to guess a number between 1 and 30")
-while True:
-    num = choose()
-    if prime(num) == True:
-        print("The number is prime")
-    else:
-        print("The number is a composite number")
-    while count != 0:
-        print("Number of chances left",count)
-        guess = getguess()
-        if guess == False:
-            print("Enter an integer number between 1 and 30")
-            continue
-        if win(guess,num):
-            print("Congrats you've won\n")
+def main():
+    name = input("Enter your name:")
+    print(name,"you have 8 chances to guess a number between 1 and 30")
+    while True:
+        count = 8
+        num = choose()
+        if prime(num) == True:
+            print("The number is prime")
+        else:
+            print("The number is a composite number")
+        while count != 0:
+            print("Number of chances left",count)
+            guess = getguess()
+            if guess == False:
+                print("Enter an integer number between 1 and 30")
+                continue
+            if win(guess,num):
+                print("Congrats you've won\n")
+                break
+            greater_or_smaller(guess,num)
+            count -= 1
+            print()
+        if count == 0:
+            print("Bad luck",name,".The number was",num)
+        a = input("Enter y or Y to play again\nOtherwise press whatever you want\t")
+        if a.upper() != "Y":
+            print("Goodbye")
             break
-        greater_or_smaller(guess,num)
-        count -= 1
-        print()
-    if count == 0:
-        print("Bad luck",name,".The number was",num)
-    a = input("Enter y or Y to play again\nOtherwise press whatever you want\t")
-    if a.upper() != "Y":
-        print("Goodbye")
-        break
+main()
