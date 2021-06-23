@@ -13,30 +13,19 @@ def GetNumber():
         return False
 #Do binary search
 def BinarySearch(list,start,last,num):
-   	# Check base case
 	if last >= start:
-
 		mid = (last + start) // 2
-
-		# If element is present at the middle itself
 		if list[mid] == num:
 			return mid
-
-		# If element is smaller than mid, then it can only
-		# be present in left sublistay
 		elif list[mid] > num:
 			return BinarySearch(list, start, mid - 1, num)
-
-		# Else the element can only be present in right sublistay
 		else:
 			return BinarySearch(list, mid + 1, last, num)
-
 	else:
-		# Element is not present in the array
 		return -1
 #Main
 def main():
-    list = [1,2,3,4,5,6,7,8,9]
+    list = GenerateList()
     print("Enter a number you'd like to search from a list of 50 random number ranging from 1 to 100")
     x = GetNumber()
     print(type(x))
